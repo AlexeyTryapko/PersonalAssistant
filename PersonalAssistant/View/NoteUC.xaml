@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="PersonalAssistant.View.NoteUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PersonalAssistant.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="650">
+    <Grid Background="White" Width="650" Margin="0, 0, 0, 20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#00227a">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <!--<ColumnDefinition Width="2*"/>-->
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{Binding Path=NoteTitle}" Margin="0, 3, 0, 0" Grid.Column="0" x:Name="noteTitle" FontFamily="Roboto" FontSize="16" Padding="5" Foreground="#fafafa" TextAlignment="Center" VerticalAlignment="Center"/>
+            <!--<StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel>
+                    <Button Command="{Binding RemoveNoteCommand}" SelectedItem="{Binding SelectedNote}" BorderBrush="{x:Null}" Width="23" Height="20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/PersonalAssistant;component/Assets/removeIcon.png"/>
+                        </Button.Background>
+                    </Button>
+                </StackPanel>
+            </StackPanel>-->
+        </Grid>
+        <StackPanel Grid.Row="1" Margin="10, 10, 20, 10">
+            <TextBlock Text="{Binding Path=NoteMain}"
+                x:Name="noteMain" FontFamily="Roboto Light" TextWrapping="Wrap" FontSize="16" Foreground="#4f5b62" TextAlignment="Left" VerticalAlignment="Center"/>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

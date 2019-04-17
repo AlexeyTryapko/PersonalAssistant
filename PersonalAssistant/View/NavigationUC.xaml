@@ -1,0 +1,114 @@
+﻿<UserControl x:Class="PersonalAssistant.View.NavigationUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PersonalAssistant.View"
+             mc:Ignorable="d" 
+              d:DesignHeight="650" d:DesignWidth="180">
+    <Grid Background="#3949ab" Width="180">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Image Margin="0, 10, 0, 0" Source="/PersonalAssistant;component/Assets/userIcon.png" Stretch="None" Grid.Row="0" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <TextBlock Grid.Row="1" FontFamily="Roboto" FontSize="16" Padding="5" Foreground="#fafafa" TextAlignment="Center" Text="{Binding Path=CurrentUserName}"/>
+            <TextBlock Grid.Row="2" FontFamily="Roboto" FontSize="12" Padding="5" Foreground="#fafafa" TextAlignment="Center" Text="{Binding Path=CurrentUserMail}"/>
+        </Grid>
+        <Grid Grid.Row="1" Margin="15, 0, 0, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="/PersonalAssistant;component/Assets/noteIcon.png" Grid.Column="0" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Button Cursor="Hand" Command="{Binding LoadNotesUCCommand, Mode=OneTime}" Grid.Column="1" FontFamily="Roboto Light" FontSize="16" Padding="5" Foreground="#fafafa" Content="Notes" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Left"/>
+        </Grid>
+        <!--<Grid Grid.Row="2" Margin="15, 0, 0, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="/PersonalAssistant;component/Assets/eventIcon.png" Grid.Column="0" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Button Cursor="Hand" Command="{Binding LoadSignInUCCommand, Mode=OneTime}" Grid.Column="1" FontFamily="Roboto Light" FontSize="16" Padding="5" Foreground="#fafafa" Content="Events" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Left"/>
+        </Grid>-->
+        <Grid Grid.Row="2" Margin="15, 0, 0, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="/PersonalAssistant;component/Assets/contactsIcon.png" Grid.Column="0" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Button Cursor="Hand" Command="{Binding LoadContactsUCCommand, Mode=OneTime}" Grid.Column="1" FontFamily="Roboto Light" FontSize="16" Padding="5" Foreground="#fafafa" Content="Contacts" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Left"/>
+        </Grid>
+        <Grid Grid.Row="3" Margin="15, 0, 0, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="/PersonalAssistant;component/Assets/meetingIcon.png" Grid.Column="0" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Button Cursor="Hand" Command="{Binding LoadMeetingsUCCommand, Mode=OneTime}" Grid.Column="1" FontFamily="Roboto Light" FontSize="16" Padding="5" Foreground="#fafafa" Content="Meetings" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Left"/>
+        </Grid>
+        <Button Cursor="Hand" Command="{Binding ExportToFIle}" Grid.Row="7" FontFamily="Roboto Light" FontSize="16" Padding="5" Foreground="#fafafa" Content="Export to file" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="center"/>
+        <Button Cursor="Hand" Command="{Binding ExportToMail}" Grid.Row="8" FontFamily="Roboto Light" FontSize="16" Padding="5" Foreground="#fafafa" Content="Export to mail" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="center"/>
+
+        <Button Grid.Row="9" Cursor="Hand" Command="{Binding LoadSignInUCCommand, Mode=OneTime}" x:Name="signInlink" Content="Log out" FontFamily="Roboto Light" FontSize="16" Padding="5" Foreground="#fafafa" Background="{x:Null}" BorderBrush="{x:Null}"/>
+    </Grid>
+</UserControl>

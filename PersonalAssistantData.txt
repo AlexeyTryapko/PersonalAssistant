@@ -1,0 +1,7 @@
+	NOTES
+Note title: some note	Note main: some text
+Note title: another note	Note main: another text
+	MEETUPS
+Meetup address: some addres	Meetup description: new meeting
+	CONTACTS
+Contact name: some contact	Contact email: somemail.com

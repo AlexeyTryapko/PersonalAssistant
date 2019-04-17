@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicePersonalAssistant" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IServicePersonalAssistant_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8301/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8301/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8301/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PersonalAssistantWCF.Entity" />
+      <xsd:import schemaLocation="http://localhost:8301/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CastleActiveRecord.Persistence" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicePersonalAssistant_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_Registration_InputMessage">
+    <wsdl:part name="parameters" element="tns:Registration" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_Registration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_Write_InputMessage">
+    <wsdl:part name="parameters" element="tns:Write" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_Write_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WriteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_InitializeActiveRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:InitializeActiveRecord" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_InitializeActiveRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InitializeActiveRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_RefreshNotes_InputMessage">
+    <wsdl:part name="parameters" element="tns:RefreshNotes" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_RefreshNotes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RefreshNotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_DeleteNote_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteNote" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_DeleteNote_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_AddNote_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNote" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_AddNote_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_RefreshMeetups_InputMessage">
+    <wsdl:part name="parameters" element="tns:RefreshMeetups" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_RefreshMeetups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RefreshMeetupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_DeleteMeetup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMeetup" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_DeleteMeetup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMeetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_AddMeetup_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMeetup" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_AddMeetup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMeetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_RefreshContacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:RefreshContacts" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_RefreshContacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RefreshContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_DeleteContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteContact" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_DeleteContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_AddContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddContact" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_AddContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_Export_InputMessage">
+    <wsdl:part name="parameters" element="tns:Export" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_Export_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicePersonalAssistant_MsgCallback_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:MsgCallback" />
+  </wsdl:message>
+  <wsdl:portType name="IServicePersonalAssistant">
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicePersonalAssistant/Login" message="tns:IServicePersonalAssistant_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicePersonalAssistant/LoginResponse" message="tns:IServicePersonalAssistant_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Registration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicePersonalAssistant/Registration" message="tns:IServicePersonalAssistant_Registration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicePersonalAssistant/RegistrationResponse" message="tns:IServicePersonalAssistant_Registration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Write">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicePersonalAssistant/Write" message="tns:IServicePersonalAssistant_Write_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicePersonalAssistant/WriteResponse" message="tns:IServicePersonalAssistant_Write_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InitializeActiveRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicePersonalAssistant/InitializeActiveRecord" message="tns:IServicePersonalAssistant_InitializeActiveRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicePersonalAssistant/InitializeActiveRecordResponse" message="tns:IServicePersonalAssistant_InitializeActiveRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshNotes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicePersonalAssistant/RefreshNotes" message="tns:IServicePersonalAssistant_RefreshNotes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicePersonalAssistant/RefreshNotesResponse" message="tns:IServicePersonalAssistant_RefreshNotes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNote">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicePersonalAssistant/DeleteNote" message="tns:IServicePersonalAssistant_DeleteNote_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicePersonalAssistant/DeleteNoteResponse" message="tns:IServicePersonalAssistant_DeleteNote_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNote">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicePersonalAssistant/AddNote" message="tns:IServicePersonalAssistant_AddNote_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicePersonalAssistant/AddNoteResponse" message="tns:IServicePersonalAssistant_AddNote_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshMeetups">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicePersonalAssistant/RefreshMeetups" message="tns:IServicePersonalAssistant_RefreshMeetups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicePersonalAssistant/RefreshMeetupsResponse" message="tns:IServicePersonalAssistant_RefreshMeetups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMeetup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicePersonalAssistant/DeleteMeetup" message="tns:IServicePersonalAssistant_DeleteMeetup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicePersonalAssistant/DeleteMeetupResponse" message="tns:IServicePersonalAssistant_DeleteMeetup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMeetup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicePersonalAssistant/AddMeetup" message="tns:IServicePersonalAssistant_AddMeetup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicePersonalAssistant/AddMeetupResponse" message="tns:IServicePersonalAssistant_AddMeetup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshContacts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicePersonalAssistant/RefreshContacts" message="tns:IServicePersonalAssistant_RefreshContacts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicePersonalAssistant/RefreshContactsResponse" message="tns:IServicePersonalAssistant_RefreshContacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicePersonalAssistant/DeleteContact" message="tns:IServicePersonalAssistant_DeleteContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicePersonalAssistant/DeleteContactResponse" message="tns:IServicePersonalAssistant_DeleteContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicePersonalAssistant/AddContact" message="tns:IServicePersonalAssistant_AddContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicePersonalAssistant/AddContactResponse" message="tns:IServicePersonalAssistant_AddContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Export">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicePersonalAssistant/Export" message="tns:IServicePersonalAssistant_Export_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicePersonalAssistant/ExportResponse" message="tns:IServicePersonalAssistant_Export_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsgCallback">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicePersonalAssistant/MsgCallback" message="tns:IServicePersonalAssistant_MsgCallback_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IServicePersonalAssistant" type="tns:IServicePersonalAssistant">
+    <wsp:PolicyReference URI="#NetTcpBinding_IServicePersonalAssistant_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/IServicePersonalAssistant/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Registration">
+      <soap12:operation soapAction="http://tempuri.org/IServicePersonalAssistant/Registration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Write">
+      <soap12:operation soapAction="http://tempuri.org/IServicePersonalAssistant/Write" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitializeActiveRecord">
+      <soap12:operation soapAction="http://tempuri.org/IServicePersonalAssistant/InitializeActiveRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshNotes">
+      <soap12:operation soapAction="http://tempuri.org/IServicePersonalAssistant/RefreshNotes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNote">
+      <soap12:operation soapAction="http://tempuri.org/IServicePersonalAssistant/DeleteNote" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNote">
+      <soap12:operation soapAction="http://tempuri.org/IServicePersonalAssistant/AddNote" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshMeetups">
+      <soap12:operation soapAction="http://tempuri.org/IServicePersonalAssistant/RefreshMeetups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMeetup">
+      <soap12:operation soapAction="http://tempuri.org/IServicePersonalAssistant/DeleteMeetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMeetup">
+      <soap12:operation soapAction="http://tempuri.org/IServicePersonalAssistant/AddMeetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshContacts">
+      <soap12:operation soapAction="http://tempuri.org/IServicePersonalAssistant/RefreshContacts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <soap12:operation soapAction="http://tempuri.org/IServicePersonalAssistant/DeleteContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddContact">
+      <soap12:operation soapAction="http://tempuri.org/IServicePersonalAssistant/AddContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Export">
+      <soap12:operation soapAction="http://tempuri.org/IServicePersonalAssistant/Export" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsgCallback">
+      <soap12:operation soapAction="http://tempuri.org/IServicePersonalAssistant/MsgCallback" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicePersonalAssistant">
+    <wsdl:port name="NetTcpBinding_IServicePersonalAssistant" binding="tns:NetTcpBinding_IServicePersonalAssistant">
+      <soap12:address location="net.tcp://localhost:8302/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8302/</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>DESKTOP-9ETG7CR\aatry</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

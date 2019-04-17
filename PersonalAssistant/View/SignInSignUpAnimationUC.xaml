@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="PersonalAssistant.View.SignInSignUpAnimationUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PersonalAssistant.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="200">
+    <UserControl.Resources>
+        <PathGeometry x:Key="geometryPath">
+            <PathFigure IsClosed="True" StartPoint="0,0">
+                <LineSegment Point="30,200" />
+                <LineSegment Point="30,0" />
+                <LineSegment Point="0,200" />
+
+            </PathFigure>
+        </PathGeometry>
+    </UserControl.Resources>
+
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <EventTrigger.Actions>
+                <BeginStoryboard>
+                    <Storyboard TargetProperty="Height">
+                        <DoubleAnimation From="0" To="590"
+                                         Duration="0:0:0.60"
+                                         />
+                    </Storyboard>
+                </BeginStoryboard>
+
+            </EventTrigger.Actions>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <Grid>
+        <Canvas Background="Transparent">
+            <Path Stroke="Transparent" Data="{StaticResource geometryPath}" Canvas.Top="10" Canvas.Left="10" />
+            <TextBlock Width="170" Height="110" Canvas.Top="177" Canvas.Left="120" FontFamily="Roboto Light" FontSize="14" Foreground="#fafafa" TextWrapping="Wrap" TextAlignment="Center">
+                        <Run FontSize="20" Text="Personal Assistant" />
+                        <Run Text="© Alexey Tryapko" />
+
+                <TextBlock.Triggers>
+                    <EventTrigger RoutedEvent="Window.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimationUsingPath Storyboard.TargetProperty="(Canvas.Top)"
+                                       Duration="0:0:20" RepeatBehavior="Forever"
+                                       PathGeometry="{StaticResource geometryPath}" Source="Y" >
+                                </DoubleAnimationUsingPath>
+                                <DoubleAnimationUsingPath Storyboard.TargetProperty="(Canvas.Left)"
+                                       AutoReverse="True"                   
+                                       Duration="0:0:20" RepeatBehavior="Forever"
+                                       PathGeometry="{StaticResource geometryPath}" Source="X" >
+                                </DoubleAnimationUsingPath>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </TextBlock.Triggers>
+            </TextBlock>
+        </Canvas>
+
+    </Grid>
+</UserControl>
